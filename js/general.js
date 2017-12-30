@@ -12,7 +12,7 @@ require("electron").webFrame.setZoomLevelLimits(1, 1)
 /* The pages of a native application should not be zooming.
 一个原生应用的页面不应该能被缩放。 */
 
-function maximize(){
+function maximize () {
     /* Maximize the window.
     最大化窗口。 */
     const win = require("electron").remote.getCurrentWindow()

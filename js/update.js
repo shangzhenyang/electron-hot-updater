@@ -9,7 +9,7 @@ try{
         /* Generate a random number in order to get the latest file without interference from the cache.
         生成一个随机数以便获得最新的文件而不受缓存的干扰。 */
 
-        const xhr = new XMLHttpRequest()
+        const xhr = new XMLHttpRequest ()
         xhr.onreadystatechange = function () {
             switch ( xhr.readyState ) {
                 case 4:
@@ -35,13 +35,13 @@ try{
                 default: break
             }
         }
-        xhr.open( "GET", "http://t.rths.tk/web/toolbox/files.json?" + num )
+        xhr.open ( "GET", "http://t.rths.tk/web/toolbox/files.json?" + num )
         /* You need to replace the URL here with your own URL. You can go to http://t.rths.tk/web/toolbox/files.json to see the example of this file.
         你需要将这里的网址换成你自己的网址。你可以前往 http://t.rths.tk/web/toolbox/files.json 查看这个文件的例子。 */
 
-        xhr.send()
+        xhr.send ()
     }
-    function next() {
+    function next () {
         if ( progress < files.length ) { update ( files[progress] ) }
         /* If there is a file that is not downloaded, continue to download.
         如果有未下载的文件，继续下载。 */
@@ -56,7 +56,7 @@ try{
             前往主界面。 */
         }
     }
-    function update(file) {
+    function update (file) {
         document.getElementsByClassName("content")[0].innerText += "\nDownloading "+file+" . . ."
         /* Show "Downloading" on the screen.
         在屏幕上显示“正在下载”。 */
@@ -65,7 +65,7 @@ try{
         /* Generate a random number in order to get the latest file without interference from the cache.
         生成一个随机数以便获得最新的文件而不受缓存的干扰。 */
 
-        const xhr = new XMLHttpRequest()
+        const xhr = new XMLHttpRequest ()
         xhr.onreadystatechange = function () {
             switch ( xhr.readyState ) {
                 case 4:
@@ -91,8 +91,8 @@ try{
                 default: break
             }
         }
-        xhr.open( "GET", "http://t.rths.tk/" + file + "?" + num )
-        xhr.send()
+        xhr.open ( "GET", "http://t.rths.tk/" + file + "?" + num )
+        xhr.send ()
     }
 } catch (e) { document.getElementsByClassName("content")[0].innerText += " Error\n" + e.message + "\nFailed to update." }
 /* Show "Failed to update" on the screen.

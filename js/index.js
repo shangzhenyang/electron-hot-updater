@@ -1,13 +1,13 @@
 /* Code written by Shangzhen Yang */
-const electron = require("electron")
-const package = require("./package.json")
+const electron = require ("electron")
+const package = require ("./package.json")
 
 const num = 10000 + Math.round ( Math.random() * 89999 )
 /* Generate a random number in order to get the latest version number without interference from the cache.
 生成一个随机数以便获得最新的版本号而不受缓存的干扰。 */
 
-let xhr = new XMLHttpRequest()
-xhr.onreadystatechange=function () {
+let xhr = new XMLHttpRequest ()
+xhr.onreadystatechange = function () {
     switch ( xhr.readyState ) {
         case 4:
             if ( xhr.status == 200 ) {
@@ -26,8 +26,8 @@ xhr.onreadystatechange=function () {
         default: break
     }
 }
-xhr.open( "GET", "http://t.rths.tk/package.json?" + num )
+xhr.open ( "GET", "http://t.rths.tk/package.json?" + num )
 /* You need to replace the URL here with your own URL.
 你需要将这里的网址换成你自己的网址。 */
 
-xhr.send()
+xhr.send ()
