@@ -1,4 +1,5 @@
-# electron-hot-updater Electron 热更新器
+# Electron Hot Updater
+# Electron 热更新器
 
 Update your electron app without downloading the whole installer.
 
