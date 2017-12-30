@@ -1,6 +1,10 @@
 /* Code written by Shangzhen Yang */
 
-if (process.platform !== "darwin") {document.getElementsByClassName("win")[0].style.display = ""}
+if (process.platform == "darwin") {document.getElementsByClassName("drag")[0].style.textAlign = "center"}
+/* Center the title bar text on macOS.
+在 macOS 上使标题栏居中 */
+
+else {document.getElementsByClassName("win")[0].style.display = ""}
 /* Show the control box of the window.
 显示窗口的控制按钮。 */
 
@@ -25,7 +29,7 @@ xhr.onreadystatechange=function() {
                 /* Convert the obtained string to JSON.
                 将得到的字符串转换为 JSON。 */
 
-                if(package.version != json.version) {window.location.href = "../update.html"}
+                if(package.version != json.version) {window.location.href = "update.html"}
                 /* If the version number on the server does not match the local version number, open the update page.
                 如果服务器上的版本号与本地的不匹配，打开更新页面。 */
             }

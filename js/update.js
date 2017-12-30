@@ -63,7 +63,7 @@ try{
             /* Show "Updated successfully" on the screen.
             在屏幕上显示“更新成功”。 */
 
-            window.location.href="../index.html"
+            window.location.href = "index.html"
             /* Go to the home page.
             前往主界面。 */
         }
@@ -82,7 +82,7 @@ try{
             switch(xhr.readyState){
                 case 4:
                     if(xhr.status==200){
-                        require("fs").writeFileSync(require("path").join(__dirname, "../" + file), xhr.responseText)
+                        require("fs").writeFileSync(require("path").join(__dirname, file), xhr.responseText)
                         /* Overwrite the local file.
                         覆盖本地文件。 */
 
