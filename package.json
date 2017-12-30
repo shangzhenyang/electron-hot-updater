@@ -2,7 +2,7 @@
   "name": "electron-hot-updater",
   "version": "1.0.0",
   "description": "Update your electron app without downloading the whole installer.",
-  "main": "main.js",
+  "main": "electron/main.js",
   "author": "Shangzhen Yang",
   "license": "ISC"
 }

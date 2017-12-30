@@ -25,7 +25,7 @@ xhr.onreadystatechange=function() {
                 /* Convert the obtained string to JSON.
                 将得到的字符串转换为 JSON。 */
 
-                if(package.version != json.version) {window.location.href = "update.html"}
+                if(package.version != json.version) {window.location.href = "../update.html"}
                 /* If the version number on the server does not match the local version number, open the update page.
                 如果服务器上的版本号与本地的不匹配，打开更新页面。 */
             }
