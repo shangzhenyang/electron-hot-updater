@@ -12,7 +12,7 @@ Update your electron app without downloading the whole installer.
 
 2. Make a file list like [this]("http://t.rths.tk/web/toolbox/files.json").
 
-3. Refer to the code in this project, especially *update.js*.
+3. Refer to the code in this project, especially *js/update.js*.
 
 **使用步骤：**
 
@@ -20,4 +20,4 @@ Update your electron app without downloading the whole installer.
 
 2. 制作一个像[这样]("http://t.rths.tk/web/toolbox/files.json")的文件列表。
 
-3. 参考这个项目中的代码，特别是 *update.js*。
+3. 参考这个项目中的代码，特别是 *js/update.js*。
