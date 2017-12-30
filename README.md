@@ -34,4 +34,4 @@ Update your electron app without downloading the whole installer.
 
 - 更新器不能和 *asar* 一起工作。
 
-- 如果程序被安装在 *C:\Program Files*，更新器将无法运行，除非用户以管理员身份运行它。
+- 如果程序被安装在 *C:\Program Files*，更新器将无法工作，除非用户以管理员身份运行它。
