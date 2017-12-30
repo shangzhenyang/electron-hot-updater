@@ -1,17 +1,5 @@
 /* Code written by Shangzhen Yang */
 try{
-    require("electron").webFrame.setZoomLevelLimits(1, 1)
-    /* The pages of a native application should not be zooming.
-    一个原生应用的页面不应该能被缩放。 */
-
-    if (process.platform == "darwin") {document.getElementsByClassName("drag")[0].style.textAlign = "center"}
-    /* Center the title bar text on macOS.
-    在 macOS 上使标题栏居中 */
-
-    else {document.getElementsByClassName("win")[0].style.display = ""}
-    /* Show the control box of the window.
-    显示窗口的控制按钮。 */
-
     let files, progress = 0
     window.onload = function() {
         /* Get the file list.
@@ -109,11 +97,3 @@ try{
 }catch(e){document.getElementsByClassName("content")[0].innerText += " Error\n" + e.message + "\nFailed to update."}
 /* Show "Failed to update" on the screen.
 在屏幕上显示“更新失败”。 */
-
-function maximize(){
-    const win = require("electron").remote.getCurrentWindow()
-    if (win.isMaximized()) {win.unmaximize()}
-    else {win.maximize()}
-    /* Maximize the window.
-    最大化窗口。 */
-}

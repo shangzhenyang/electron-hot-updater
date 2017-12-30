@@ -1,22 +1,8 @@
 /* Code written by Shangzhen Yang */
-
-if (process.platform == "darwin") {document.getElementsByClassName("drag")[0].style.textAlign = "center"}
-/* Center the title bar text on macOS.
-在 macOS 上使标题栏居中 */
-
-else {document.getElementsByClassName("win")[0].style.display = ""}
-/* Show the control box of the window.
-显示窗口的控制按钮。 */
-
 const electron = require("electron")
-
-electron.webFrame.setZoomLevelLimits(1, 1)
-/* The pages of a native application should not be zooming.
-一个原生应用的页面不应该能被缩放。 */
-
 const package = require("./package.json")
 
-let num = 10000 + Math.round(Math.random() * 89999)
+const num = 10000 + Math.round(Math.random() * 89999)
 /* Generate a random number in order to get the latest version number without interference from the cache.
 生成一个随机数以便获得最新的版本号而不受缓存的干扰。 */
 
@@ -42,11 +28,3 @@ xhr.open("GET", "http://t.rths.tk/package.json?" + num)
 你需要将这里的网址换成你自己的网址。 */
 
 xhr.send()
-
-function maximize(){
-    const win = require("electron").remote.getCurrentWindow()
-    if (win.isMaximized()) {win.unmaximize()}
-    else {win.maximize()}
-    /* Maximize the window.
-    最大化窗口。 */
-}
