@@ -4,6 +4,8 @@ Update your electron app without downloading the whole installer.
 
 更新你的 Electron 应用而无需下载整个安装程序。
 
+---
+
 <strong>Steps for usage:</strong>
 
 1. Upload your program files to your server, including <strong>package.json</strong>.
