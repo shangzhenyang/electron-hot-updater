@@ -1,5 +1,5 @@
 # electron-hot-updater
 
-Update your electron apps without downloading the whole app.
+Update your electron app without downloading the whole installer.
 
 Coming soon.
