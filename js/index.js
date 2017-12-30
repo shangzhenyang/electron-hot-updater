@@ -16,7 +16,7 @@ xhr.onreadystatechange = function () {
                 将得到的字符串转换为 JSON。 */
 
                 if ( package.version != json.version ) {
-                    const update = confirm("There are updates available. Do you want to update this app?")
+                    const update = confirm ("There are updates available. Do you want to update this app?")
                     if ( update ) { window.location.href = "update.html" }
                 }
                 /* If the version number on the server does not match the local version number, open the update page.
