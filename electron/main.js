@@ -25,8 +25,8 @@ function createWindow () {
         protocol: "file:",
         slashes: true
     } ) )
-    win.on ( "closed", () => { win=null } )
-    win.once ( "ready-to-show", () =>{ win.show () } )
+    win.on ( "closed", () => { win = null } )
+    win.once ( "ready-to-show", () => { win.show () } )
 }
 app.on ( "ready", createWindow )
-app.on ( "window-all-closed", () => { app.quit() } )
+app.on ( "window-all-closed", () => { app.quit () } )
