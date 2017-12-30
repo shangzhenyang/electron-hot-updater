@@ -6,7 +6,7 @@ const num = 10000 + Math.round ( Math.random() * 89999 )
 /* Generate a random number in order to get the latest version number without interference from the cache.
 生成一个随机数以便获得最新的版本号而不受缓存的干扰。 */
 
-let xhr = new XMLHttpRequest ()
+const xhr = new XMLHttpRequest ()
 xhr.onreadystatechange = function () {
     switch ( xhr.readyState ) {
         case 4:
