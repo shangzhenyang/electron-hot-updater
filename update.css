@@ -1,0 +1,55 @@
+/*Code written by Shangzhen Yang*/
+body{
+	color:white;
+	font-family:"Helvetica Neue",Helvetica,sans-serif,"等线";
+	user-select:none;
+	-webkit-user-select:none
+}
+::-webkit-scrollbar{display:none}
+.drag{
+	background-color:#1E1E1E;
+	cursor:default;
+	height:40px;
+	left:0%;
+	line-height:20px;
+	padding:10px;
+	position:fixed;
+	top:0px;
+	width:100%;
+	-webkit-app-region:drag
+}
+.win{
+	color:white;
+	cursor:default;
+	font-size:20px;
+	height:40px;
+	line-height:40px;
+	position:fixed;
+	right:0px;
+	text-align:center;
+	top:0px;
+	width:120px;
+	z-index:11;
+	-webkit-app-region:no-drag
+}
+.win div{
+	height:40px;
+	position:fixed;
+	width:40px
+}
+.win div:hover{background-color:#007AF4}
+.win div:active{
+	background-color:white;
+	color:#0066CC
+}
+.content{
+	background-color:black;
+	font-family:Consolas;
+	height:calc(100% - 40px);
+	left:0px;
+	overflow:auto;
+	padding:15px;
+	position:fixed;
+	top:40px;
+	width:100%
+}
