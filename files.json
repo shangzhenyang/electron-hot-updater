@@ -5,8 +5,8 @@
 	"README.md",
 	"update.html",
 	"css/update.css",
-	"electron/main.js",
 	"js/general.js",
 	"js/index.js",
+	"js/main.js",
 	"js/update.js"
 ]
