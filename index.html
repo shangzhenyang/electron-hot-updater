@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Code written by Shangzhen Yang -->
 		<meta charset="utf-8">
 		<title>electron-hot-updater</title>
 		<link href="css/update.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="drag">electron-hot-updater</div>
-		<div class="win" style="display:none">
-			<div style="right: 80px" onclick="require('electron').remote.getCurrentWindow().minimize()">-</div>
-			<div style="right: 40px" onclick="maximize()">+</div>
-			<div style="right: 0px" onclick="window.close()">×</div>
+		<div class="win">
+			<div id="minimize-btn">-</div>
+			<div id="maximize-btn">+</div>
+			<div id="close-btn">×</div>
 		</div>
 		<div class="content">Hello, world!</div>
 		<script src="js/general.js"></script>

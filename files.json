@@ -1,0 +1,12 @@
+[
+	"files.json",
+	"index.html",
+	"package.json",
+	"README.md",
+	"update.html",
+	"css/update.css",
+	"electron/main.js",
+	"js/general.js",
+	"js/index.js",
+	"js/update.js"
+]

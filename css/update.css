@@ -1,11 +1,20 @@
-/*Code written by Shangzhen Yang*/
 body{
 	color:white;
 	font-family:"Helvetica Neue",Helvetica,sans-serif,"等线";
 	user-select:none;
 	-webkit-user-select:none
 }
-::-webkit-scrollbar{display:none}
+.content{
+	background-color:black;
+	font-family:Consolas;
+	height:calc(100% - 40px);
+	left:0px;
+	overflow:auto;
+	padding:15px;
+	position:fixed;
+	top:40px;
+	width:100%
+}
 .drag{
 	background-color:#1E1E1E;
 	cursor:default;
@@ -21,6 +30,7 @@ body{
 .win{
 	color:white;
 	cursor:default;
+	display:none;
 	font-size:20px;
 	height:40px;
 	line-height:40px;
@@ -37,19 +47,22 @@ body{
 	position:fixed;
 	width:40px
 }
-.win div:hover{background-color:#007AF4}
+.win div:hover{
+	background-color:#007AF4;
+}
 .win div:active{
 	background-color:white;
 	color:#0066CC
 }
-.content{
-	background-color:black;
-	font-family:Consolas;
-	height:calc(100% - 40px);
-	left:0px;
-	overflow:auto;
-	padding:15px;
-	position:fixed;
-	top:40px;
-	width:100%
+#minimize-btn{
+	right:80px;
+}
+#maximize-btn{
+	right:40px;
+}
+#close-btn{
+	right:0px;
+}
+::-webkit-scrollbar{
+	display:none
 }
