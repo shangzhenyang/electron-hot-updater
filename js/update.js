@@ -3,11 +3,12 @@ try{
 	const root="https://raw.githubusercontent.com/shangzhenyang/electron-hot-updater/master/"
 	/* You need to replace the URL here with your own URL.
 	你需要将这里的网址换成你自己的网址。 */
+	const timestamp="?time="+new Date().getTime()
 	let files,progress=0
 	window.addEventListener("load",()=>{
 		/* Get the file list.
 		获取文件列表。 */
-		fetch(root+"files.json").then(response=>{
+		fetch(root+"files.json"+timestamp).then(response=>{
 			if(response.ok){
 				return response.json()
 			}else{
@@ -45,7 +46,7 @@ try{
 		document.getElementsByClassName("content")[0].innerText+="\nDownloading "+file+" . . ."
 		/* Show "Downloading" on the screen.
 		在屏幕上显示“正在下载”。 */
-		fetch(root+file).then(response=>{
+		fetch(root+file+timestamp).then(response=>{
 			if(response.ok){
 				return response.text()
 			}else{

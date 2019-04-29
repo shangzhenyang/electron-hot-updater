@@ -1,5 +1,8 @@
 /* element-hot-updater by Shangzhen Yang https://github.com/shangzhenyang/electron-hot-updater */
 const electron=require("electron")
+electron.webFrame.setZoomLevelLimits(1,1)
+/* The pages of a native application should not be zoomable.
+一个原生应用的页面不应该能被缩放。 */
 document.getElementById("minimize-btn").onclick=()=>{
 	/* Minimize the window.
 	最小化窗口。 */
@@ -29,6 +32,3 @@ if(process.platform=="darwin"){
 	/* Show the control box of the window.
 	显示窗口的控制按钮。 */
 }
-require("electron").webFrame.setZoomLevelLimits(1,1)
-/* The pages of a native application should not be zoomable.
-一个原生应用的页面不应该能被缩放。 */

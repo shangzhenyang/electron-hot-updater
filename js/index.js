@@ -1,6 +1,7 @@
 /* element-hot-updater by Shangzhen Yang https://github.com/shangzhenyang/electron-hot-updater */
 const package=require("./package.json")
-fetch("https://raw.githubusercontent.com/shangzhenyang/electron-hot-updater/master/package.json").then(response=>{
+const timestamp="?time="+new Date().getTime()
+fetch("https://raw.githubusercontent.com/shangzhenyang/electron-hot-updater/master/package.json"+timestamp).then(response=>{
 	/* You need to replace the URL here with your own URL.
 	你需要将这里的网址换成你自己的网址。 */
 	if(response.ok){
