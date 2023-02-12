@@ -1,71 +1,74 @@
-a{
-	color:white;
+* {
+	box-sizing: border-box;
 }
-body{
-	color:white;
-	font-family:"Helvetica Neue",Helvetica,sans-serif,"等线";
-	user-select:none;
-	-webkit-user-select:none
+
+a {
+	color: white;
 }
-.content{
-	background-color:black;
-	font-family:Consolas;
-	height:calc(100% - 40px);
-	left:0px;
-	overflow:auto;
-	padding:15px;
-	position:fixed;
-	top:40px;
-	width:100%
+
+body {
+	color: white;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	-webkit-user-select: none;
+	user-select: none;
 }
-.drag{
-	background-color:#1E1E1E;
-	cursor:default;
-	height:40px;
-	left:0%;
-	line-height:20px;
-	padding:10px;
-	position:fixed;
-	top:0px;
-	width:100%;
-	-webkit-app-region:drag
+
+.content {
+	background-color: black;
+	font-family: Consolas;
+	height: calc(100% - 40px);
+	left: 0;
+	overflow: auto;
+	padding: 15px;
+	position: fixed;
+	top: 40px;
+	width: 100%
 }
-.win{
-	color:white;
-	cursor:default;
-	display:none;
-	font-size:20px;
-	height:40px;
-	line-height:40px;
-	position:fixed;
-	right:0px;
-	text-align:center;
-	top:0px;
-	width:120px;
-	z-index:11;
-	-webkit-app-region:no-drag
+
+.title {
+	padding: 10px 15px;
 }
-.win div{
-	height:40px;
-	position:fixed;
-	width:40px
+
+.title-bar {
+	background-color: #1E1E1E;
+	cursor: default;
+	display: flex;
+	height: 40px;
+	justify-content: space-between;
+	left: 0%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	-webkit-app-region: drag
 }
-.win div:hover{
-	background-color:#007AF4;
+
+.win-control {
+	align-items: center;
+	color: white;
+	cursor: default;
+	display: flex;
+	font-family: monospace;
+	font-size: 20px;
+	text-align: center;
+	-webkit-app-region: no-drag
 }
-.win div:active{
-	background-color:white;
-	color:#0066CC
+
+.win-control div {
+	height: 40px;
+	line-height: 40px;
+	transition: all .25s;
+	width: 40px
 }
-#minimize-btn{
-	right:80px;
+
+.win-control div:hover {
+	background-color: #007AF4;
 }
-#maximize-btn{
-	right:40px;
+
+.win-control div:active {
+	background-color: white;
+	color: #0066CC
 }
-#close-btn{
-	right:0px;
-}
-::-webkit-scrollbar{
-	display:none
+
+::-webkit-scrollbar {
+	display: none
 }

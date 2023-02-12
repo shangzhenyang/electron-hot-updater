@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 	<head>
 		<meta charset="utf-8">
 		<title>electron-hot-updater</title>
 		<link href="css/update.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="drag">electron-hot-updater</div>
-		<div class="win">
-			<div id="minimize-btn">-</div>
-			<div id="maximize-btn">+</div>
-			<div id="close-btn">×</div>
+		<div id="title-bar" class="title-bar">
+			<div class="title">electron-hot-updater</div>
+			<div id="win-control" class="win-control">
+				<div id="minimize-btn">-</div>
+				<div id="maximize-btn">+</div>
+				<div id="close-btn">×</div>
+			</div>
 		</div>
-		<div class="content">Hello, world!&nbsp;<a href="update.html">Update</a></div>
+		<div id="content" class="content">Hello, world!&nbsp;<a href="update.html">Update</a></div>
 		<script src="js/general.js"></script>
 		<script src="js/index.js"></script>
 	</body>

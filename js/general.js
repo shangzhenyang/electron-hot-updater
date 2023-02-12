@@ -1,31 +1,31 @@
-/* element-hot-updater by Shangzhen Yang https://github.com/shangzhenyang/electron-hot-updater */
-const electron=require("electron")
-document.getElementById("minimize-btn").onclick=()=>{
-	/* Minimize the window.
-	最小化窗口。 */
-	electron.remote.getCurrentWindow().minimize()
-}
-document.getElementById("maximize-btn").onclick=()=>{
-	/* Maximize the window.
-	最大化窗口。 */
-	const win=require("electron").remote.getCurrentWindow()
-	if(win.isMaximized()){
-		win.unmaximize()
-	}else{
-		win.maximize()
+/**
+ * electron-hot-updater
+ * https://github.com/shangzhenyang/electron-hot-updater
+ *
+ * @author Shangzhen Yang
+ */
+
+const electron = require("electron");
+
+document.getElementById("minimize-btn").addEventListener("click", () => {
+	electron.remote.getCurrentWindow().minimize();
+});
+
+document.getElementById("maximize-btn").addEventListener("click", () => {
+	const win = require("electron").remote.getCurrentWindow();
+	if (win.isMaximized()) {
+		win.unmaximize();
+	} else {
+		win.maximize();
 	}
-}
-document.getElementById("close-btn").onclick=()=>{
-	/* Close the window.
-	关闭窗口。 */
-	close()
-}
-if(process.platform=="darwin"){
-	document.getElementsByClassName("drag")[0].style.textAlign="center"
-	/* Center the title bar text on macOS.
-	在 macOS 上使标题栏居中 */
-}else{
-	document.getElementsByClassName("win")[0].style.display="block"
-	/* Show the control box of the window.
-	显示窗口的控制按钮。 */
+});
+
+document.getElementById("close-btn").addEventListener("click", () => {
+	window.close();
+});
+
+if (process.platform == "darwin") {
+	// Center the title bar text and hide the window control buttons on macOS.
+	document.getElementById("title-bar").style.textAlign = "center";
+	document.getElementById("win-control").style.display = "block";
 }

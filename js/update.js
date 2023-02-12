@@ -1,76 +1,83 @@
-/* element-hot-updater by Shangzhen Yang https://github.com/shangzhenyang/electron-hot-updater */
-try{
-	const root="https://raw.githubusercontent.com/shangzhenyang/electron-hot-updater/master/"
-	/* You need to replace the URL here with your own URL.
-	你需要将这里的网址换成你自己的网址。 */
-	const timestamp="?time="+new Date().getTime()
-	let files,progress=0
-	window.addEventListener("load",()=>{
-		/* Get the file list.
-		获取文件列表。 */
-		fetch(root+"files.json"+timestamp).then(response=>{
-			if(response.ok){
-				return response.json()
-			}else{
-				document.getElementsByClassName("content")[0].innerText+=" Error ("+response.status+")\nFailed to update."
-				/* Show "Failed to update" on the screen.
-				在屏幕上显示“更新失败”。 */
-			}
-		}).then(data=>{
-			if(data){
-				files=data
-				document.getElementsByClassName("content")[0].innerText+=" Done"
-				/* Show "Done" on the screen.
-				在屏幕上显示“完成”。 */
-				next()
-				/* Start updating.
-				开始更新。 */
-			}
-		})
+/**
+ * electron-hot-updater
+ * https://github.com/shangzhenyang/electron-hot-updater
+ *
+ * @author Shangzhen Yang
+ */
+
+// TODO: You need to replace the URL here with your own URL.
+const REMOTE_ROOT = process.env.REMOTE_ROOT ||
+	"https://raw.githubusercontent.com/shangzhenyang/electron-hot-updater/master/";
+
+try {
+	const fs = require("fs");
+	const path = require("path");
+
+	const content = document.getElementById("content");
+	const timestamp = "?time=" + new Date().getTime();
+
+	let files;
+	let progress = 0;
+
+	window.addEventListener("load", () => {
+		// Get the file list.
+		fetch(REMOTE_ROOT + "files.json" + timestamp)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				} else {
+					content.innerText += " Error (" + response.status +
+						")\nFailed to update.";
+				}
+			})
+			.then((data) => {
+				if (data) {
+					files = data;
+					content.innerText += " Done";
+
+					// Start updating.
+					next();
+				}
+			});
 	})
-	function next(){
-		if(progress<files.length){
-			update(files[progress])
-			/* If there is a file that is not downloaded, continue to download.
-			如果有未下载的文件，继续下载。 */
-		}else{
-			document.getElementsByClassName("content")[0].innerText+="\nUpdated successfully."
-			/* Show "Updated successfully" on the screen.
-			在屏幕上显示“更新成功”。 */
-			location.href="index.html"
-			/* Go to the home page.
-			前往主界面。 */
+	function next() {
+		if (progress < files.length) {
+			// If there is a file that is not downloaded, continue to download.
+			update(files[progress]);
+		} else {
+			content.innerText += "\nUpdated successfully.";
+			location.href = "index.html";
 		}
 	}
-	function update(file){
-		document.getElementsByClassName("content")[0].innerText+="\nDownloading "+file+" . . ."
-		/* Show "Downloading" on the screen.
-		在屏幕上显示“正在下载”。 */
-		fetch(root+file+timestamp).then(response=>{
-			if(response.ok){
-				return response.text()
-			}else{
-				document.getElementsByClassName("content")[0].innerText+=" Error ("+response.status + ")\nFailed to update."
-				/* Show "Failed to update" on the screen.
-				在屏幕上显示“更新失败”。 */
-			}
-		}).then(data=>{
-			if(data){
-				require("fs").writeFileSync(require("path").join(__dirname,file),data)
-				/* Overwrite the local file.
-				覆盖本地文件。 */
-				document.getElementsByClassName("content")[0].innerText+=" Done"
-				/* Show "Done" on the screen.
-				在屏幕上显示“完成”。 */
-				progress+=1
-				next()
-				/* Continue.
-				继续。 */
-			}
-		})
+	function update(file) {
+		content.innerText += "\nDownloading " + file + " . . .";
+
+		fetch(REMOTE_ROOT + file + timestamp)
+			.then((response) => {
+				if (response.ok) {
+					return response.text();
+				} else {
+					throw new Error(response.status);
+				}
+			})
+			.then((data) => {
+				if (data) {
+					// Overwrite the local file.
+					fs.writeFileSync(path.join(__dirname, file), data);
+
+					content.innerText += " Done";
+					progress += 1;
+
+					// Continue.
+					next();
+				}
+			})
+			.catch((err) => {
+				content.innerText += " Error (" + err.message +
+					")\nFailed to update.";
+			});
 	}
-}catch(e){
-	document.getElementsByClassName("content")[0].innerText+=" Error\n"+e.message+"\nFailed to update."
-	/* Show "Failed to update" on the screen.
-	在屏幕上显示“更新失败”。 */
+} catch (err) {
+	document.getElementById("content").innerText += " Error\n" + err.message +
+		"\nFailed to update.";
 }
